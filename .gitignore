@@ -34,3 +34,4 @@ logs
 
 # Cache
 .cache/
+frontend/node_modules/.cache/
