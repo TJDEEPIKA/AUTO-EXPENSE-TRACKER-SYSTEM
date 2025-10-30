@@ -18,7 +18,7 @@ const User = () => {
       try {
         setLoading(true);
         const token = localStorage.getItem("token");
-        const res = await axios.get("http://localhost:5000/api/user/profile", {
+        const res = await axios.get("https://auto-expense-tracker-system.onrender.com/api/user/profile", {
           headers: { Authorization: `Bearer ${token}` },
         });
         setUser(res.data);
@@ -34,10 +34,10 @@ const User = () => {
         setDeletedLoading(true);
         const token = localStorage.getItem("token");
         const [expensesRes, salariesRes] = await Promise.all([
-          axios.get("http://localhost:5000/api/expenses/deleted", {
+          axios.get("https://auto-expense-tracker-system.onrender.com/api/expenses/deleted", {
             headers: { Authorization: `Bearer ${token}` },
           }),
-          axios.get("http://localhost:5000/api/salaries/deleted", {
+          axios.get("https://auto-expense-tracker-system.onrender.com/api/salaries/deleted", {
             headers: { Authorization: `Bearer ${token}` },
           }),
         ]);
@@ -79,7 +79,7 @@ const User = () => {
     try {
       setSaving(true);
       const token = localStorage.getItem("token");
-      await axios.put("http://localhost:5000/api/user/updateProfile", editForm, {
+      await axios.put("https://auto-expense-tracker-system.onrender.com/api/user/updateProfile", editForm, {
         headers: { Authorization: `Bearer ${token}` },
       });
       setUser({ ...user, ...editForm });
