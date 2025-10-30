@@ -56,7 +56,7 @@ function Signup() {
     if (!validate()) return; // Stop if validation fails
 
     try {
-      await axios.post("http://localhost:5000/api/auth/signup", {
+      await axios.post("https://auto-expense-tracker-system.onrender.com/api/auth/signup", {
         name,
         email,
         password,
@@ -123,7 +123,7 @@ function Signup() {
           <span>or</span>
         </div>
         <a
-          href="http://localhost:5000/api/auth/google"
+          href="https://auto-expense-tracker-system.onrender.com/api/auth/google"
           className="google-btn"
           style={{
             display: 'inline-block',
