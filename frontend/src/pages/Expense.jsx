@@ -37,7 +37,7 @@ const Expense = () => {
     try {
       setExpensesLoading(true);
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/expenses", {
+      const res = await axios.get("https://auto-expense-tracker-system.onrender.com/api/expenses", {
         headers: { Authorization: `Bearer ${token}` },
       });
       // API may return an array or an object - normalize and filter soft-deleted
@@ -65,7 +65,7 @@ const Expense = () => {
 
       if (editingId) {
         await axios.put(
-          `http://localhost:5000/api/expenses/${editingId}`,
+          `https://auto-expense-tracker-system.onrender.com/api/expenses/${editingId}`,
           { amount: parseFloat(amount), category, description },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -73,7 +73,7 @@ const Expense = () => {
         setEditingId(null);
       } else {
         await axios.post(
-          "http://localhost:5000/api/expenses/add",
+          "https://auto-expense-tracker-system.onrender.com/api/expenses/add",
           { amount: parseFloat(amount), category, description },
           { headers: { Authorization: `Bearer ${token}` } }
         );
@@ -113,7 +113,7 @@ const Expense = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/expenses/${id}`, {
+      await axios.delete(`https://auto-expense-tracker-system.onrender.com/api/expenses/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert("Expense deleted successfully!");
