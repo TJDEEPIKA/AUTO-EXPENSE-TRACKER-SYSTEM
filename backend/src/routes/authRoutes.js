@@ -12,6 +12,6 @@ router.get("/google", (req, res, next) => {
     googleAuth(req, res, next);
   });
 });
-router.get("/google/callback", passport.authenticate('google', { failureRedirect: 'http://localhost:3000/login', session: false }), googleCallback);
+router.get("/google/callback", passport.authenticate('google', { failureRedirect: process.env.FRONTEND_URL ? `${process.env.FRONTEND_URL}/login` : 'http://localhost:3000/login', session: false }), googleCallback);
 
 module.exports = router;

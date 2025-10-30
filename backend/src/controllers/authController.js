@@ -53,15 +53,16 @@ exports.login = async (req, res) => {
 exports.googleAuth = passport.authenticate('google', { scope: ['profile', 'email'], prompt: 'select_account' });
 
 exports.googleCallback = (req, res) => {
+  const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
   if (!req.user) {
-    return res.redirect('http://localhost:3000/login?error=google_auth_failed');
+    return res.redirect(`${frontendUrl}/login?error=google_auth_failed`);
   }
   try {
     // User is authenticated, generate JWT
     const token = jwt.sign({ id: req.user._id }, JWT_SECRET, { expiresIn: "1d" });
     // Redirect to frontend with token
-    res.redirect(`http://localhost:3000/dashboard?token=${token}`);
+    res.redirect(`${frontendUrl}/dashboard?token=${token}`);
   } catch (error) {
-    res.redirect('http://localhost:3000/login?error=token_generation_failed');
+    res.redirect(`${frontendUrl}/login?error=token_generation_failed`);
   }
 };
