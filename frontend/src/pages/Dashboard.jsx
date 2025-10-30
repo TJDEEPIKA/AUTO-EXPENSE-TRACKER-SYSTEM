@@ -32,7 +32,7 @@ const Dashboard = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      const res = await axios.get("/api/expenses/summaryhttps://auto-expense-tracker-system.onrender.com", {
+      const res = await axios.get("https://auto-expense-tracker-system.onrender.com/api/expenses/summary", {
         headers: { Authorization: `Bearer ${token}` },
       });
       setStats(res.data.stats);
