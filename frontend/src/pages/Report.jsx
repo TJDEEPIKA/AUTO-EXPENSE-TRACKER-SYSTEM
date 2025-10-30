@@ -40,7 +40,7 @@ const Report = () => {
   const fetchExpenses = async () => {
     try {
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/expenses", {
+      const res = await axios.get("https://auto-expense-tracker-system.onrender.com/api/expenses", {
         headers: { Authorization: `Bearer ${token}` },
       });
       const data = Array.isArray(res.data) ? res.data : (res.data.expenses || res.data);
