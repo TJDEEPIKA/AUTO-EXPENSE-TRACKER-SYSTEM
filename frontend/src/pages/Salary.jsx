@@ -35,7 +35,7 @@ const Salary = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      const res = await axios.get("http://localhost:5000/api/salaries", {
+      const res = await axios.get("https://auto-expense-tracker-system.onrender.com/api/salaries", {
         headers: { Authorization: `Bearer ${token}` }
       });
       // Normalize response shape (could be { salaries } or an array)
@@ -64,7 +64,7 @@ const Salary = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      await axios.post("http://localhost:5000/api/salaries/add", {
+      await axios.post("https://auto-expense-tracker-system.onrender.com/api/salaries/add", {
         month: salaryMonth,
         amount: parseFloat(amount)
       }, {
@@ -96,7 +96,7 @@ const Salary = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      await axios.put(`http://localhost:5000/api/salaries/${editingId}`, {
+      await axios.put(`https://auto-expense-tracker-system.onrender.com/api/salaries/${editingId}`, {
         month: updatedMonth,
         amount: parseFloat(editAmount)
       }, {
@@ -121,7 +121,7 @@ const Salary = () => {
     try {
       setLoading(true);
       const token = localStorage.getItem("token");
-      await axios.delete(`http://localhost:5000/api/salaries/${id}`, {
+      await axios.delete(`https://auto-expense-tracker-system.onrender.com/api/salaries/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       alert("Salary deleted successfully!");
