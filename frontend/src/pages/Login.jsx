@@ -34,7 +34,7 @@ function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     try {
-      const res = await axios.post("http://localhost:5000/api/auth/login", {
+      const res = await axios.post("https://auto-expense-tracker-system.onrender.com/api/auth/login", {
         email,
         password
       });
@@ -76,7 +76,7 @@ function Login() {
         <button
           onClick={() => {
             localStorage.removeItem('token');
-            window.location.href = 'http://localhost:5000/api/auth/google';
+            window.location.href = 'https://auto-expense-tracker-system.onrender.com/api/auth/google';
           }}
           className="google-btn"
           style={{
